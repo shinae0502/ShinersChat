@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "78607239103",
+    "firebase_url": "https://shinerstalk.firebaseio.com",
+    "project_id": "shinerstalk",
+    "storage_bucket": "shinerstalk.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:78607239103:android:cba7b4899629bbf9",
+        "android_client_info": {
+          "package_name": "com.example.shina.shinerstalk"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "78607239103-ls0bg3thl0cec96khfdmjveldaac8h2d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.shina.shinerstalk",
+            "certificate_hash": "96d24cbca51f3a04fa94deb781b51493fffd1282"
+          }
+        },
+        {
+          "client_id": "78607239103-knk7hdt2gljpd9q8b6akc11vltqnkq40.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCgzWOpwGbF7whVATbixPGf59hqKP-J9KA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "78607239103-knk7hdt2gljpd9q8b6akc11vltqnkq40.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
