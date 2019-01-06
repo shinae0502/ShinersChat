@@ -40,9 +40,9 @@ public class LoginActivity extends AppCompatActivity {
         // 하울이 이 코드를 작성하면서 "singleton 패턴으로 선언을 해줄게요." 라고 했다. 무슨말이지?
         firebaseRemoteConfig = FirebaseRemoteConfig.getInstance();
 
-        // 파이어베이스 원격 설정으로부터 테마를 적용해주는 부분
+        // 파이어베이스 원격 설정으로부터 화면의 백그라운드 색상을 적용해주는 부분.
         splash_background = firebaseRemoteConfig.getString(getString(R.string.rc_color));
-        Log.i(TAG, "onCreate:  splash_background 값 : "+splash_background);
+        Log.i(TAG, "onCreate:  splash_background 값 : "+splash_background);  // 색상값이 로그로 찍힌다.
 
         // 파이어베이스로부터 받은 설정값을 실제 StatusBarColor에 적용해준다.
         getWindow().setStatusBarColor(Color.parseColor(splash_background));

@@ -38,6 +38,7 @@ public class PeopleFragment extends android.support.v4.app.Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_people,container,false);
+
         RecyclerView recyclerView = view.findViewById(R.id.peoplefragment_recyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(inflater.getContext()));
         recyclerView.setAdapter(new PeopleFragmentRecyclerViewAdapter());
@@ -74,10 +75,11 @@ public class PeopleFragment extends android.support.v4.app.Fragment {
 
                 @Override
                 public void onCancelled(DatabaseError databaseError) {
-
+                    Log.e(TAG, "onCancelled: 뭔가 에러가 발생했다.");
                 }
             });
         }// 생성자 종료
+
 
         @NonNull
         @Override
@@ -85,8 +87,6 @@ public class PeopleFragment extends android.support.v4.app.Fragment {
             View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_friend,viewGroup,false);
             return new CustomViewHolder(view);
         }
-
-
 
 
         @Override
@@ -131,10 +131,13 @@ public class PeopleFragment extends android.support.v4.app.Fragment {
             return userModels.size();
         }
 
+
+        // 뷰홀더 클래스
         private class CustomViewHolder extends RecyclerView.ViewHolder {
             public ImageView imageView;
             public TextView textView;
 
+            // 뷰홀더 생성자 Constructor
             public CustomViewHolder(View view) {
                 super(view);
                 imageView = view.findViewById(R.id.frienditem_imageview);
