@@ -20,6 +20,7 @@ import com.bumptech.glide.request.RequestOptions;
 import com.example.shina.shinerstalk.R;
 import com.example.shina.shinerstalk.chat.MessageActivity;
 import com.example.shina.shinerstalk.model.UserModel;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -65,10 +66,23 @@ public class PeopleFragment extends android.support.v4.app.Fragment {
                     //데이터 모델이 바뀌었을 때, 누적된 데이터들을 초기화 하여 꼬이지 않게 한다.
                     userModels.clear();
 
+                    final String myUid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+
                     for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                        //userModel 리스트에 친구목록을 받는데, 서버에서 Value를 get해오고, UserModel클래스 형태로 받겠다는 뜻
-                        userModels.add(snapshot.getValue(UserModel.class));
-                    }
+
+                        // snapshat으로 받은 것을 userModel 객체에 담아준다.
+                        UserModel userModel = snapshot.getValue(UserModel.class);
+
+                        // 만약 userModel의 uid가 현재 사용자의 uid와 일치할 경우
+                        if (userModel.uid.equals(myUid)) {
+                            // 건너 뛴다는 뜻인 거 같다.
+                            continue;
+                        }
+                        // 현재사용자는 담기지 않고 넘어간다.
+                        userModels.add(userModel);
+                    }//end for loop
+
                     // 새로고침 해주기 - 아답터에 아이템이 바뀌었음을 알려주는 메서드
                     notifyDataSetChanged();
                 }
